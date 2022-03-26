@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-
+//test
 namespace _1911060839_Vuthidiemlinh_BigSchool.Models
 {
     public class ExternalLoginConfirmationViewModel
