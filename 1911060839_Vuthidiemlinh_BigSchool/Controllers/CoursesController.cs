@@ -16,6 +16,15 @@ namespace _1911060839_Vuthidiemlinh_BigSchool.Controllers
         {
             _dbContext = new ApplicationDbContext();
         }
+        [Authorize]
+        public ActionResult Create()
+        {
+            var viewModel = new CourseViewModel
+            {
+                Categories = _dbContext.Categories.ToList()
+            };
+            return View(viewModel);
+        }
         // GET: Courses
         [Authorize]
         [HttpPost]
@@ -41,15 +50,7 @@ namespace _1911060839_Vuthidiemlinh_BigSchool.Controllers
 
 
         }
-        [Authorize]
-        public ActionResult Create()
-        {
-            var viewModel = new CourseViewModel
-            {
-                Categories= _dbContext.Categories.ToList()
-            };
-            return View(viewModel);
-        }
+        
 
         
     }
