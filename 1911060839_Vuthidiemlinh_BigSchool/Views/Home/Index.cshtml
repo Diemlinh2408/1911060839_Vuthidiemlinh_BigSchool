@@ -2,6 +2,10 @@
 @{
     ViewBag.Title = "Home Page";
 }
+<h2>List of courses</h2>
+<p>
+    @Html.ActionLink("Create New", "Create", "Courses")
+</p>
 <div class="row">
     <ul class="course">
         @foreach (var course in Model)
@@ -34,15 +38,14 @@
         }
 
     </ul>
-   @section scripts
-{
+     @section scripts{
         <script>
             $(document).ready(function () {
                 $("js-toggle-attendance").click(function (e) {
                     var button = $(e.target);
                     $post("/api/attendances", { courseId: button.attr("data-course-id") })
                         .done(function () {
-                            alert("Regist success!!!");
+                            
                             button
                                 .removeClass("btn-default")
                                 .addClass("btn-info")
@@ -72,5 +75,5 @@
                 });
             });
         </script>
-  }
+        }
 </div>

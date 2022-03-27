@@ -34,7 +34,7 @@ namespace _1911060839_Vuthidiemlinh_BigSchool.Controllers
                 FollowerId = userId,
                 FolloweeId = followingDto.FolloweeId
             };
-
+            folowing.FollowerId = userId;
             _dbContext.Followings.Add(folowing);
             _dbContext.SaveChanges();
 
