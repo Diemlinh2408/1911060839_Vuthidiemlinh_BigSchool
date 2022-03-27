@@ -21,7 +21,7 @@ namespace _1911060839_Vuthidiemlinh_BigSchool.Controllers
         {
             _dbContext=new ApplicationDbContext();
         }
-
+//
         [HttpPost]
         public IHttpActionResult Follow(FollowingDto followingDto)
         {
