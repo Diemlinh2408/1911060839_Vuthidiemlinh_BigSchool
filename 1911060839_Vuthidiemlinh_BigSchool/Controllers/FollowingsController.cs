@@ -22,28 +22,23 @@ namespace _1911060839_Vuthidiemlinh_BigSchool.Controllers
             _dbContext=new ApplicationDbContext();
         }
 
-        [System.Web.Http.HttpPost]
+        [HttpPost]
         public IHttpActionResult Follow(FollowingDto followingDto)
         {
             var userId = User.Identity.GetUserId();
             if (_dbContext.Followings.Any(f => f.FollowerId == userId && f.FolloweeId == followingDto.FolloweeId))
-
                 return BadRequest("Following already exists!");
+
             var folowing = new Following
             {
-                FolloweeId=userId,
-                FollowerId = followingDto.FollowerId
+                FollowerId = userId,
+                FolloweeId = followingDto.FolloweeId
             };
+
             _dbContext.Followings.Add(folowing);
             _dbContext.SaveChanges();
 
-                
-                return Ok();
-        }
-        // GET: Followings
-        public ActionResult Index()
-        {
-            return View();
+            return Ok();
         }
     }
 }
