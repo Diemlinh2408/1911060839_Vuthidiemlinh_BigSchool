@@ -20,6 +20,7 @@ namespace _1911060839_Vuthidiemlinh_BigSchool.Models
         public Category Category { get; set; }
         [Required]
         public byte CategoryId { get; set; }
+       
     }
     
 }

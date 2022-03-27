@@ -11,6 +11,7 @@ namespace _1911060839_Vuthidiemlinh_BigSchool.Controllers
 {
     public class CoursesController : Controller
     {
+        // GET: Courses
         private readonly ApplicationDbContext _dbContext;
         public CoursesController()
         {
@@ -22,36 +23,31 @@ namespace _1911060839_Vuthidiemlinh_BigSchool.Controllers
             var viewModel = new CourseViewModel
             {
                 Categories = _dbContext.Categories.ToList()
+
             };
             return View(viewModel);
         }
-        // GET: Courses
+
         [Authorize]
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(CourseViewModel viewModels)
+        public ActionResult Create(CourseViewModel viewModel)
         {
             if (!ModelState.IsValid)
             {
-                viewModels.Categories = _dbContext.Categories.ToList();
-                return View("Create", viewModels);
+                viewModel.Categories = _dbContext.Categories.ToList();
+                return View("Create", viewModel);
             }
-            var courses = new Course
+
+            var course = new Course
             {
                 LecturerId = User.Identity.GetUserId(),
-                DateTime = viewModels.GetDateTime(),
-                CategoryId = viewModels.Category,
-                Place = viewModels.Place,
-
+                DateTime = viewModel.GetDateTime(),
+                CategoryId = viewModel.Category,
+                Place = viewModel.Place
             };
-            _dbContext.Courses.Add(courses);
+            _dbContext.Courses.Add(course);
             _dbContext.SaveChanges();
             return RedirectToAction("Index", "Home");
-
-
         }
-        
-
-        
     }
 }
