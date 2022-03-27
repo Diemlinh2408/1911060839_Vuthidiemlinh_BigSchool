@@ -8,6 +8,7 @@ using System.Net.Http;
 using System.Web.Http;
 using Microsoft.Azure.Documents;
 using System.Web.Helpers;
+using _1911060839_Vuthidiemlinh_BigSchool.DTOs;
 
 namespace _1911060839_Vuthidiemlinh_BigSchool.Controllers
 {
@@ -21,12 +22,15 @@ namespace _1911060839_Vuthidiemlinh_BigSchool.Controllers
         }
 
         [HttpPost]
-        public IHttpActionResult Attend([FromBody] int courseId)
+        public IHttpActionResult Attend(AttendanceDto atttendanceDto)
         {
+            var userId =User.Identity.GetUserId();
+            if (_dbContext.Attendances.Any(a => a.AttendeeId == userId && a.CourseId == atttendanceDto.CourseId))
+                return BadRequest("The Attendance already exists!");
             var attendance = new Attendance
             {
-                CourseId = courseId,
-                AttendeeId =User.Identity.GetUserId()
+                CourseId = atttendanceDto.CourseId,
+                AttendeeId =userId
 
 
             };
