@@ -12,6 +12,7 @@ using _1911060839_Vuthidiemlinh_BigSchool.DTOs;
 
 namespace _1911060839_Vuthidiemlinh_BigSchool.Controllers
 {
+    //commit
     [Authorize]
     public class AttendancesController : ApiController
     {
@@ -22,14 +23,14 @@ namespace _1911060839_Vuthidiemlinh_BigSchool.Controllers
         }
 
         [HttpPost]
-        public IHttpActionResult Attend(AttendanceDto atttendanceDto)
+        public IHttpActionResult Attend(AttendanceDto attendanceDto)
         {
             var userId =User.Identity.GetUserId();
-            if (_dbContext.Attendances.Any(a => a.AttendeeId == userId && a.CourseId == atttendanceDto.CourseId))
+            if (_dbContext.Attendances.Any(a => a.AttendeeId == userId && a.CourseId == attendanceDto.CourseId))
                 return BadRequest("The Attendance already exists!");
             var attendance = new Attendance
             {
-                CourseId = atttendanceDto.CourseId,
+                CourseId = attendanceDto.CourseId,
                 AttendeeId =userId
 
 

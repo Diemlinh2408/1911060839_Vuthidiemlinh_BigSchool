@@ -24,7 +24,7 @@ namespace _1911060839_Vuthidiemlinh_BigSchool.Models
                 .HasRequired(a => a.Course)
                 .WithMany()
                 .WillCascadeOnDelete(false);
-            base.OnModelCreating(modelBuilder);
+            //base.OnModelCreating(modelBuilder);
 
             modelBuilder.Entity<ApplicationUser>()
                 .HasMany(u => u.Followers)

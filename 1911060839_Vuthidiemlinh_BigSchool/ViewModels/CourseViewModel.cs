@@ -12,7 +12,7 @@ namespace _1911060839_Vuthidiemlinh_BigSchool.ViewModels
         public IEnumerable<Course> UpcommingCourses { get; set; }
         public bool ShowAction { get; set; }
 
-        /*[Required]
+        [Required]
         public string Place { get; set; }
         [Required]
         [FutureDate]
@@ -27,6 +27,6 @@ namespace _1911060839_Vuthidiemlinh_BigSchool.ViewModels
         public DateTime GetDateTime()
         {
             return DateTime.Parse(string.Format("{0} {1}", Date, Time));
-        }*/
+        }
     }
 }
