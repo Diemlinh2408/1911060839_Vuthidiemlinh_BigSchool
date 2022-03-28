@@ -16,12 +16,12 @@ namespace _1911060839_Vuthidiemlinh_BigSchool.Controllers
 {
     public class FollowingsController : Controller
     {
-        private readonly ApplicationDbContext _dbContext;
+        /*private readonly ApplicationDbContext _dbContext;
         public FollowingsController()
         {
             _dbContext=new ApplicationDbContext();
         }
-//
+
         [HttpPost]
         public IHttpActionResult Follow(FollowingDto followingDto)
         {
@@ -34,11 +34,14 @@ namespace _1911060839_Vuthidiemlinh_BigSchool.Controllers
                 FollowerId = userId,
                 FolloweeId = followingDto.FolloweeId
             };
-            folowing.FollowerId = userId;
+            
+
             _dbContext.Followings.Add(folowing);
             _dbContext.SaveChanges();
 
             return Ok();
         }
-    }
+
+
+    }*/
 }
